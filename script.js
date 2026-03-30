@@ -25,4 +25,21 @@ function validarFormulari(event) {
     missatge.className = 'error';
     return;
   }
+ if (isNaN(examen) || examen < 0 || examen > 10) {
+    missatge.textContent = 'La nota de l\'examen ha de ser entre 0 i 10.';
+    missatge.className = 'error';
+    return;
+  }
+ 
+  if (isNaN(practiques) || practiques < 0 || practiques > 10) {
+    missatge.textContent = 'La nota de pràctiques ha de ser entre 0 i 10.';
+    missatge.className = 'error';
+    return;
+  }
+ 
+  if (isNaN(actitud) || actitud < 0 || actitud > 10) {
+    missatge.textContent = 'La nota d\'actitud ha de ser entre 0 i 10.';
+    missatge.className = 'error';
+    return;
+  }
 }
