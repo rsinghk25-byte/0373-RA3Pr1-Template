@@ -77,3 +77,11 @@ function mostrarAlumnes() {
       '</tr>';
   }
 }
+
+function ordenarAlumnes(direccio) {
+  alumnes.sort(function(a, b) {
+    if (direccio === 'asc') return a.notaFinal - b.notaFinal;
+    return b.notaFinal - a.notaFinal;
+  });
+  mostrarAlumnes();
+}
