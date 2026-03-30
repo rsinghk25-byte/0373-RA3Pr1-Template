@@ -42,4 +42,38 @@ function validarFormulari(event) {
     missatge.className = 'error';
     return;
   }
+  var notaFinal = (examen * 0.6) + (practiques * 0.3) + (actitud * 0.1);
+ 
+  alumnes.push({
+    nom: nom,
+    examen: examen,
+    practiques: practiques,
+    actitud: actitud,
+    notaFinal: notaFinal
+  });
+ 
+  mostrarAlumnes();
+ 
+  missatge.textContent = 'Alumne afegit correctament!';
+  missatge.className = 'correcte';
+  formulari.reset();
+}
+ 
+function mostrarAlumnes() {
+  cosTaula.innerHTML = '';
+ 
+  for (var i = 0; i < alumnes.length; i++) {
+    var a = alumnes[i];
+    var estat = a.notaFinal >= 5 ? 'Aprovat' : 'Suspès';
+    var classe = a.notaFinal >= 5 ? 'aprovat' : 'suspes';
+ 
+    cosTaula.innerHTML += '<tr>' +
+      '<td>' + a.nom + '</td>' +
+      '<td>' + a.examen.toFixed(2) + '</td>' +
+      '<td>' + a.practiques.toFixed(2) + '</td>' +
+      '<td>' + a.actitud.toFixed(2) + '</td>' +
+      '<td>' + a.notaFinal.toFixed(2) + '</td>' +
+      '<td class="' + classe + '">' + estat + '</td>' +
+      '</tr>';
+  }
 }
